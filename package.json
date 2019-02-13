@@ -1,0 +1,22 @@
+{
+  "name": "auto-nightwatch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/index.js",
+    "generate": "node ./src/test.js",
+    "test": "nightwatch --config nightwatch.conf.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chromedriver": "^2.46.0",
+    "express": "^4.16.4",
+    "nightwatch": "^1.0.19"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
