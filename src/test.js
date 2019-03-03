@@ -1,37 +1,20 @@
-const guide =  require('./config.json')
+const fs = require('fs')
+function parseTestScript() {
+  let content = `
+  module.exports = {
+  `
+  const testScriptPath = "test_script/config.json";
+  // const testScript = JSON.parse();
+  fs.readFile(testScriptPath,'utf8', (err, data) => {
+    const testScriptData = JSON.parse(data);
 
-function parseActions(guide) {
-  return JSON.stringify(guide);
-}
-
-function runAutomationTest(browser) {
-  if(Object.keys(browser).lenght <= 0 || browser === undefined || browser === null) {
-    throw new Error('Can not found browser')
-  }
-  const parseGuide = parseActions(guide);
-  if(browser.hasOwnProperty('url') && guide.hasOwnProperty('url')) {
-    browser.url(guide.url);
-  }
-  if (guide.hasOwnProperty('scenario')) {
-    guide.scenario.map((item) => {
-      if(Array.isArray(item.action)) {
-        let customBrowser = browser;
-        for(let i = 0; i < item.action.length; i ++) {
-          customBrowser = customBrowser[item.action[i]];
-        }
-        customBrowser.apply(null, item.value);
-      } else {
-        if (item.hasOwnProperty('action') && browser.hasOwnProperty(item.action)) {
-          if (Array.isArray(item.value)) {
-            browser[item.action].apply(null, item.value)
-          } else {
-            browser[item.action](item.value)
-          }
-        }
-      }
+    const content = `
+      console.log('aaaaaaa')
+    `
+    fs.writeFile(`tests/${testScriptData.title}.js`, content, () => {
+      console.log('ok')
     })
-    browser.end();
-  }
+  })
 }
 
-module.exports = runAutomationTest;
+parseTestScript();

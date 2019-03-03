@@ -1,0 +1,29 @@
+{
+  "url": "http://localhost:3000/",
+  "title": "Login",
+  "test_group": [
+    {
+      "tag": "Case1",
+      "steps": [
+      {
+        "action": "setValue",
+        "element": "#username",
+        "value": "abc"
+      },
+      {
+        "action": "setValue",
+        "element": "#password",
+        "value": "123"
+      },
+      {
+        "action": "value",
+        "element": "#username", 
+        "value": "kkdjs"
+      },
+      {
+        "action": "click",
+        "element": "#btn"
+      }]
+    }
+  ]
+}
