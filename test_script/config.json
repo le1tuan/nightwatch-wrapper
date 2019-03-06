@@ -1,29 +1,99 @@
 {
-  "url": "http://localhost:3000/",
   "title": "Login",
+  "url": "http://localhost:8000",
   "test_group": [
     {
       "tag": "Case1",
       "steps": [
       {
         "action": "setValue",
-        "element": "#username",
-        "value": "abc"
+        "id": "EMAIL_INPUT",
+        "value": "jessie.nguyen@mailinator.com"
       },
       {
         "action": "setValue",
-        "element": "#password",
-        "value": "123"
-      },
-      {
-        "action": "value",
-        "element": "#username", 
-        "value": "kkdjs"
+        "id": "PASSWORD_INPUT",
+        "value": "123456"
       },
       {
         "action": "click",
-        "element": "#btn"
-      }]
+        "id": "LOGIN_BTN"
+      },
+      {
+        "action": "waitForElementVisible",
+        "id": "LOGOUT_BTN",
+        "value": 10000
+      },
+      {
+        "action": "pause",
+        "value": 1000
+      },
+      {
+        "action" :"click",
+        "id" : ".Lalala > a",
+        "typeID": "class"
+      },
+      {
+        "action" : "assert",
+        "action_1":"containsText",
+        "id" : "HEADER_STORE",
+        "value": "SOKONI Store Management"
+      },
+      {
+        "action": "pause",
+        "value": 1000
+      },
+      {
+        "action": "click",
+        "id": "LOGOUT_BTN"
+      }
+    ]
+    },{
+        "tag": "Case2",
+        "steps": [
+        {
+          "action": "setValue",
+          "id": "EMAIL_INPUT",
+          "value": "jessie.nguyen@mailinator.com"
+        },
+        {
+          "action": "setValue",
+          "id": "PASSWORD_INPUT",
+          "value": "123456"
+        },
+        {
+          "action": "click",
+          "id": "LOGIN_BTN"
+        },
+        {
+          "action": "waitForElementVisible",
+          "id": "LOGOUT_BTN",
+          "value": 10000
+        },
+        {
+          "action": "pause",
+          "value": 1000
+        },
+        {
+          "action" :"click",
+          "id" : ".Lalala > a",
+          "typeID": "class"
+        },
+        {
+          "action" : "assert",
+          "action_1":"containsText",
+          "id" : "HEADER_STORE",
+          "value": "SOKONI Store Management"
+        },
+        {
+          "action": "pause",
+          "value": 1000
+        },
+        {
+          "action": "click",
+          "id": "LOGOUT_BTN"
+        }
+      ]
     }
   ]
 }
