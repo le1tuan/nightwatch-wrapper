@@ -1,12 +1,13 @@
 {
   "name": "auto-nightwatch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./src/index.js",
     "generate": "node ./src/test.js",
-    "test": "nightwatch --config nightwatch.conf.js"
+    "test": "nightwatch --config nightwatch.conf.js",
+    "init": "node ./src/init.js"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +19,6 @@
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
-  }
+  },
+  "bin" : { "auto-nightwatch" : "./cli.js" }
 }
