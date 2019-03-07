@@ -1,24 +1,20 @@
 {
   "name": "auto-nightwatch",
-  "version": "1.0.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon ./src/index.js",
-    "generate": "node ./src/test.js",
-    "test": "nightwatch --config nightwatch.conf.js",
-    "init": "node ./src/init.js"
+  "version": "1.0.0",
+  "bin": {
+    "auto-nightwatch": "./bin/auto-nightwatch.js"
   },
+  "description": "",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "chromedriver": "^2.46.0",
     "express": "^4.16.4",
-    "nightwatch": "^1.0.19"
+    "nightwatch": "^1.0.19",
+    "react-dev-utils": "^7.0.3"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
-  },
-  "bin" : { "auto-nightwatch" : "./cli.js" }
+  }
 }

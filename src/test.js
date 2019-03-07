@@ -13,7 +13,7 @@ function parseTestScript() {
         const value_1 = JSON.stringify(step.value_1) || ''
         const action = `${step.action}${step && step.action_1 ? `.${step.action_1}` : ''}`
         if(step.action === 'pause'){
-          contentBody += `.${step.action}(${value})${breakLine}`
+          contentBody += `.${step.action}(${value})\n`
         }else if(step && step.typeID === 'class') contentBody += `.${action}(${JSON.stringify(step.id)}${value ? `,${value}` : ''})\n`
         else contentBody += `.${action}(${parseTestID}${value ? `,${value}` : ''}${value_1 ? `,${value_1}` : ''})\n`
         })
