@@ -1,6 +1,6 @@
 const fs = require('fs')
 function parseTestScript() {
-  const testScriptPath = "test_script/config.json";
+  const testScriptPath = __dirname +'../../../config-automation/config.json';
   fs.readFile(testScriptPath,'utf8', (err, data) => {
     const testScriptData = JSON.parse(data);
     let contentBody = ''
