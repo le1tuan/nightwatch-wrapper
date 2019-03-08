@@ -31,7 +31,7 @@ function parseTestScript() {
     `module.exports = {
       ${header}
     }`
-    fs.writeFile(`tests/${testScriptData.title}.js`, content, () => {
+    fs.writeFile(__dirname + `/../tests/${testScriptData.title}.js`, content, () => {
       console.log(content)
     })
   })
