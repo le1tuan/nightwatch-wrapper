@@ -1,6 +1,6 @@
 {
   "name": "auto-nightwatch",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "bin": {
     "auto-nightwatch": "./bin/auto-nightwatch.js"
   },
