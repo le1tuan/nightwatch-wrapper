@@ -1,18 +1,91 @@
-I. Structure of config.json
-- url: The url of website you want to test
-- test_group: A set of test case you want to test
-- title: The title of test case
-- steps
-- action: The name of action you want to interact to the website
-- element: Name of element you want to apply the action
-- value
+```
+Setup environment
+```
+1. Install nodeJS:
+https://nodejs.org/en/
 
-II. Fundamental
-- 1. Create a config.json. It has a list of action you want to perform
-- 2. In src/index.js , we read the content of config.json and transform it to js code as String
-- 3. Write this string to folder tests/xxx.js
+2. Install yarn: 
+https://yarnpkg.com/en/docs/install#windows-stable
 
-III.Change Log
+
+3. run command line:
+    // install geckodriver
+    - npm install geckodriver --save-dev 
+    // install ChromeDriver
+    - npm install chromedriver --save-dev
+    // enable safari
+    - safaridriver --enable
+
+4. Download java: https://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+
+```
+Configuration
+```
+1. create nightwatch.json file
+    - source code:
+```
+{
+  "src_folders" : ["tests"],
+
+  "webdriver" : {
+    "start_process": true,
+    "server_path": "node_modules/.bin/chromedriver",
+    "port": 9515
+  },
+
+  "test_settings" : {
+    "default" : {
+      "desiredCapabilities": {
+        "browserName": "chrome"
+      }
+    }
+  }
+}
+```
+
+2. creating nightwatch.conf.js file
+```
+{
+  "src_folders" : ["tests"],
+
+  "webdriver" : {
+    "start_process": true,
+    "server_path": "node_modules/.bin/chromedriver",
+    "port": 9515
+  },
+
+  "test_settings" : {
+    "default" : {
+      "desiredCapabilities": {
+        "browserName": "chrome"
+      }
+    }
+  }
+}
+```
+
+
+```
+Start automation
+```
+1. runing commandline:
+    // install all library
+    - yarn install
+    // To link all path of library
+    - npm link
+
+2. Creating "tets" folder
+3. Creating "test_script" folder
+4. Creating "config.json" folder to writing steps of testting auto
+5. Run commandline: 
+    // to generate code automation:
+    - auto-nightwatch start
+    // to run auto mation:
+    - yarn run nightwatch
+
+
+Doccument of action:
 - Support basic event of night watch
   1. setValue: http://nightwatchjs.org/api/setValue.html
   2. value: http://nightwatchjs.org/api/#assert-value
