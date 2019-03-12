@@ -18,7 +18,6 @@ https://yarnpkg.com/en/docs/install#windows-stable
 
 4. Download java: https://www.oracle.com/technetwork/java/javase/downloads/index.html
 
-
 ```
 Configuration
 ```
@@ -46,25 +45,21 @@ Configuration
 
 2. creating nightwatch.conf.js file
 ```
-{
-  "src_folders" : ["tests"],
-
-  "webdriver" : {
-    "start_process": true,
-    "server_path": "node_modules/.bin/chromedriver",
-    "port": 9515
-  },
-
-  "test_settings" : {
-    "default" : {
-      "desiredCapabilities": {
-        "browserName": "chrome"
-      }
-    }
-  }
-}
+const chromedriver = require("chromedriver");
+module.exports = (function (settings) {
+  settings.test_workers = false;
+  settings.webdriver.server_path = chromedriver.path;
+  return settings;
+})(require("./nightwatch.json"));
 ```
+If run on MacOS:
 
+```
+module.exports = (function(settings) {
+  settings.test_workers = false;
+  return settings;
+})(require('./nightwatch.json'));
+```
 
 ```
 Start automation
