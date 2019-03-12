@@ -1,6 +1,6 @@
 const fs = require('fs')
 function parseTestScript() {
-  const testScriptPath = __dirname + '/../../../config-automation/config.json';
+  const testScriptPath = __dirname + '/../test_script/config.json';
   fs.readFile(testScriptPath,'utf8', (err, data) => {
     console.log('err',err)
     const testScriptData = JSON.parse(data);
@@ -32,8 +32,8 @@ function parseTestScript() {
     `module.exports = {
       ${header}
     }`
-    fs.writeFile(__dirname + `/../../../tests/${testScriptData.title}.js`, content, () => {
-      console.log(__dirname + `/../../../tests/${testScriptData.title}.js`)
+    fs.writeFile(__dirname + `/tests/${testScriptData.title}.js`, content, () => {
+      console.log(content)
     })
   })
 }
