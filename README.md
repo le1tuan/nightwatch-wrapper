@@ -1,6 +1,6 @@
-```
+````
 Setup environment
-```
+````
 1. Install nodeJS:
 https://nodejs.org/en/
 
@@ -18,9 +18,9 @@ https://yarnpkg.com/en/docs/install#windows-stable
 
 4. Download java: https://www.oracle.com/technetwork/java/javase/downloads/index.html
 
-```
+````
 Configuration
-```
+````
 1. create nightwatch.json file
     - source code:
 ```
