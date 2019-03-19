@@ -8,18 +8,14 @@ function parseTestScript() {
     let header = ''
     testScriptData.test_group.map((group, indexGroup) => 
       {
-        group.steps.map((step,index)=> {
-        const parseTestID = step.id ? JSON.stringify(`#${step.id}`) : '';
+        group.steps.map((step)=> {
+        const parseTestsSlector = step.selector ? JSON.stringify(`${step.selector}`) : '';
         const value = JSON.stringify(step.value) || ''
         const value_1 = JSON.stringify(step.value_1) || ''
         const action = `${step.action}${step && step.action_1 ? `.${step.action_1}` : ''}`
-        if(step.action === 'pause'){
-          contentBody += `.${step.action}(${value})\n`
-        }else if(step && step.typeID === 'class') contentBody += `.${action}(${JSON.stringify(step.id)}${value ? `,${value}` : ''})\n`
-        else contentBody += `.${action}(${parseTestID}${value ? `,${value}` : ''}${value_1 ? `,${value_1}` : ''})\n`
+        contentBody += `\t.${action}(${parseTestsSlector}${value ? `,${value}` : ''}${value_1 ? `,${value_1}` : ''})\n`
         })
-        header +=
-        `${JSON.stringify(group.tag)} : function(client){
+        header +=`${JSON.stringify(group.tag)} : function(client){
           client
           .url(${JSON.stringify(testScriptData.url)})
           .waitForElementVisible('body', 10000)
