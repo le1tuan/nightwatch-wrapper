@@ -72,7 +72,7 @@ Start automation
 
 2. Creating "tests" folder
 3. Creating "test_script" folder
-4. Creating "config.json" folder to writing steps of testting auto
+4. Creating "config.json" folder to writing steps of testing auto
 5. Run commandline: 
     // to generate code automation:
     - auto-nightwatch start
