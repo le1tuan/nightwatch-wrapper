@@ -70,7 +70,7 @@ Start automation
     // To link all path of library
     - npm link
 
-2. Creating "tets" folder
+2. Creating "tests" folder
 3. Creating "test_script" folder
 4. Creating "config.json" folder to writing steps of testting auto
 5. Run commandline: 
