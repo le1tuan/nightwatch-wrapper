@@ -1,8 +1,18 @@
 const fs = require('fs')
+const utils = require('./utils');
+
 function parseTestScript() {
-  const testScriptPath = __dirname + '/../test_script/config.json';
+  const testScriptPath = __dirname + '/../test_script/consadfig.json';
+  console.log(`Starting parse JSON file: ${testScriptPath}`);
+  if (!utils.checkExistFolder(testScriptPath)) {
+    console.error(`Cannot find : ${testScriptPath}`);
+    return false;
+  }
   fs.readFile(testScriptPath,'utf8', (err, data) => {
-    console.log('err',err)
+    if (err) {
+      console.log('err',err)
+      throw new Error(err)
+    }
     const testScriptData = JSON.parse(data);
     let contentBody = ''
     let header = ''
@@ -27,9 +37,12 @@ function parseTestScript() {
     const content =
     `module.exports = {
       ${header}
-    }`
-    fs.writeFile(__dirname + `/../tests/${testScriptData.title}.js`, content, () => {
-      console.log(content)
+    }`;
+    fs.writeFile(__dirname + `/../tests/${utils(testScriptData.title)}.js`, content, (err) => {
+      if (err) {
+        console.log(err)
+      }
+      console.log(`Re-write file ${__dirname}/../tests/${utils(testScriptData.title)}.js`)
     })
   })
 }
