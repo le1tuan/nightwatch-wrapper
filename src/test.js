@@ -13,7 +13,9 @@ function parseTestScript() {
         const value = JSON.stringify(step.value) || ''
         const value_1 = JSON.stringify(step.value_1) || ''
         const action = `${step.action}${step && step.action_1 ? `.${step.action_1}` : ''}`
-        contentBody += `\t.${action}(${parseTestsSlector}${value ? `,${value}` : ''}${value_1 ? `,${value_1}` : ''})\n`
+        const key = step && step.key
+        if(key) contentBody += `\t.${action}(${parseTestsSlector}${value ? `,[${value},client.Keys.${key}]` : ''}${value_1 ? `,${value_1}` : ''})\n`
+        else contentBody += `\t.${action}(${parseTestsSlector}${value ? `,${value}` : ''}${value_1 ? `,${value_1}` : ''})\n`
         })
         header +=`${JSON.stringify(group.tag)} : function(client){
           client
